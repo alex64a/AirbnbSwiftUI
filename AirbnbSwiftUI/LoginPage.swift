@@ -11,7 +11,7 @@ struct ContentView: View {
     
     //MARK: PROPERTIES
     @State var backgroundColor: Color = Color.white
-  
+    
     
     //MARK: BODY
     var body: some View {
@@ -89,7 +89,7 @@ struct BodyLoginPage: View {
             .background(Color("airbnb"))
             .cornerRadius(20)
             .font(.body).bold()
-        
+            
             
             //SECTION: DON'T HAVE AN ACCOUNT?
             HStack {
@@ -101,26 +101,37 @@ struct BodyLoginPage: View {
                 })
                 .padding(30)
                 Spacer()
-                  
+                
             }
             
-        
+            
             //SECTION: CONTINUE WITH GOOGLE, APPLE ETC.
             VStack{
-            Text("Continue with Google")
-                .background(RoundedRectangle(cornerRadius: 30).fill(Color.white)
+                
+                HStack {
+                    Image("google")
+                        .resizable()
+                        .frame(width:30, height:30, alignment: .leading)
+                    
+                    Text("Continue with Google")
+                    
+                }.background(RoundedRectangle(cornerRadius: 30).fill(Color.white)
                     .shadow(radius: 5)
                     .frame(width:350, height: 50))
-                .padding(50)
-                            
-            Text("Continue with Apple")
-            .background(RoundedRectangle(cornerRadius: 30).fill(Color.white)
-                .shadow(radius: 5)
-                .frame(width:350, height: 50))
-            
-                        }
-            
+                .padding(40)
                 
+                HStack {
+                    Image("apple")
+                        .resizable()
+                        .frame(width:30, height:30, alignment: .leading)
+                    
+                    Text("Continue with Apple")
+                }.background(RoundedRectangle(cornerRadius: 30).fill(Color.white)
+                    .shadow(radius: 5)
+                    .frame(width:350, height: 50))
+            }
+            
+            
         }
     }
 }
