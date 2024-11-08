@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "hd-airbnb-logo-with-symbol-sign-icon-png-image-701751695125368w1flit1boz.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
