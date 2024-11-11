@@ -13,9 +13,10 @@ struct ContentView: View {
     @State var backgroundColor: Color = Color.white
     
     
-    //MARK: BODY
+    //MARK: MAIN
     var body: some View {
         
+        //TODO: Change to NavigationStack (from iOS v16.0)
         NavigationView {
             
             ZStack {
@@ -31,7 +32,7 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
+//MARK: HEADER
 struct HeaderLoginPage: View {
     var body: some View {
         VStack{
@@ -58,28 +59,16 @@ struct HeaderLoginPage: View {
         }
     }
 }
-
+//MARK: BODY
 struct BodyLoginPage: View {
     
-    @State var textFieldUsername: String = ""
-    @State var secureFieldPassword: String = ""
+    
     @State var textFieldColor: Color = Color.gray
     var body: some View {
         VStack {
             
             //SECTION: LOGIN
-            Text("Login")
-                .font(.title2).bold()
-                .padding(.top,100)
-            TextField("Username (email) ", text: $textFieldUsername)
-                .padding()
-                .background(textFieldColor.opacity(0.2).cornerRadius(10))
-                .frame(width: 350, height:60, alignment: .center)
-            SecureField("Password", text: $secureFieldPassword)
-                .padding()
-                .background(textFieldColor.opacity(0.2).cornerRadius(10))
-                .frame(width: 350, height:60, alignment: .center)
-            
+            LoginSection()
             Button("Login"){
                 
             }
@@ -92,46 +81,114 @@ struct BodyLoginPage: View {
             
             
             //SECTION: DON'T HAVE AN ACCOUNT?
-            HStack {
-                VStack(alignment: .leading, spacing: 0, content: {
-                    Text("Don't have an account?").font(.title3)
-                    NavigationLink("Signup here", destination: Text("Signup page"))
-                        .font(.title2)
-                    
-                })
-                .padding(30)
-                Spacer()
-                
-            }
+            SignupHere()
             
             
             //SECTION: CONTINUE WITH GOOGLE, APPLE ETC.
-            VStack{
+            ContinueWith()
+            
+            
+        }//VStack
+    }
+}
+//MARK: SIGNUP SECTION
+struct SignupHere: View {
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 0, content: {
+                Text("Don't have an account?").font(.title3)
+                NavigationLink("Signup here", destination:SignupPage()).padding(.leading, 40)
+                    .font(.title2).bold()
                 
-                HStack {
-                    Image("google")
-                        .resizable()
-                        .frame(width:30, height:30, alignment: .leading)
+                
+            })
+            .padding(30)
+            
+        }//HStack
+    }
+}
+//MARK: LOGIN SECTION
+struct LoginSection: View {
+    @State var textFieldColor: Color = Color.gray
+    @State var textFieldUsername: String = ""
+    @State var secureFieldPassword: String = ""
+    @State var isVisiblePassword: Bool = false
+    var body: some View {
+        
+        Text("Login")
+            .font(.title2).bold()
+            .padding(.top,100)
+        
+        TextField("Username (email) ", text: $textFieldUsername)
+            .padding()
+            .background(textFieldColor.opacity(0.15).cornerRadius(10))
+            .frame(width: 350, height:60, alignment: .center)
+        
+        if (isVisiblePassword) {
+            
+            HStack {
+                TextField("Password", text: $secureFieldPassword)
+                Button {
+                    isVisiblePassword.toggle()
+                } label: {
+                    Image(systemName: "eye").foregroundColor(Color.black)
+                }
+                
+            }//HStack
+                .padding()
+                .background(textFieldColor.opacity(0.15).cornerRadius(10))
+                .frame(width: 350, height:60, alignment: .center)
+            
+        }
+        else {
+            HStack {
+                SecureField("Password", text: $secureFieldPassword)
+                Button {
+                    isVisiblePassword.toggle()
                     
-                    Text("Continue with Google")
-                    
-                }.background(RoundedRectangle(cornerRadius: 30).fill(Color.white)
-                    .shadow(radius: 5)
-                    .frame(width:350, height: 50))
+                } label: {
+                    Image(systemName: "eye.slash").foregroundColor(Color.black)
+                }
+                
+            }//HStack
+                .padding()
+                .background(textFieldColor.opacity(0.15).cornerRadius(10))
+                .frame(width: 350, height:60, alignment: .center)
+        }
+        
+        
+        
+        
+    }
+}
+//MARK: CONTINUE WITH
+struct ContinueWith: View {
+    var body: some View {
+        VStack{
+            
+            HStack {
+                Image("google")
+                    .resizable()
+                    .frame(width:30, height:30, alignment: .leading)
+                
+                Text("Continue with Google")
+                
+            }//HStack
+                .background(RoundedRectangle(cornerRadius: 30).fill(Color.white)
+                .shadow(radius: 5)
+                .frame(width:350, height: 50))
                 .padding(40)
+            
+            HStack {
+                Image("apple")
+                    .resizable()
+                    .frame(width:30, height:30, alignment: .leading)
                 
-                HStack {
-                    Image("apple")
-                        .resizable()
-                        .frame(width:30, height:30, alignment: .leading)
-                    
-                    Text("Continue with Apple")
-                }.background(RoundedRectangle(cornerRadius: 30).fill(Color.white)
-                    .shadow(radius: 5)
-                    .frame(width:350, height: 50))
-            }
-            
-            
+                Text("Continue with Apple")
+            }//HStack
+                .background(RoundedRectangle(cornerRadius: 30).fill(Color.white)
+                .shadow(radius: 5)
+                .frame(width:350, height: 50))
         }
     }
 }

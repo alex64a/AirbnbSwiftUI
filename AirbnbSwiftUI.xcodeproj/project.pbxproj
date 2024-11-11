@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		57540FB72CDE54BA009F9D1C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 57540FB62CDE54AD009F9D1C /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		57540F852CDE0D93009F9D1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		57540F742CDE0D90009F9D1C /* AirbnbSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirbnbSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57540F842CDE0D93009F9D1C /* AirbnbSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirbnbSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57540F8E2CDE0D93009F9D1C /* AirbnbSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirbnbSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57540FB62CDE54AD009F9D1C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		57540F6B2CDE0D90009F9D1C = {
 			isa = PBXGroup;
 			children = (
+				57540FB62CDE54AD009F9D1C /* README.md */,
 				57540F762CDE0D90009F9D1C /* AirbnbSwiftUI */,
 				57540F872CDE0D93009F9D1C /* AirbnbSwiftUITests */,
 				57540F912CDE0D93009F9D1C /* AirbnbSwiftUIUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57540FB72CDE54BA009F9D1C /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
